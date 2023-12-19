@@ -1,14 +1,12 @@
 ---
-title: "Welcome"
+title: "Blogs"
 date: 2023-12-18T23:30:17+01:00
 ---
 
-# Welcome :D
+# Welcome to my Blogs :D
 
-## About me:
-
-I am Myrto and I'm currently an MSc student in HCAI. Even though I study AI, I also like Cybersecurity!
-This website has some casual blogging and note keeping linked with my Obsidian vault.
+I create blogs of things I learn and I want to remember!
+Having a digital garden is a plus!
 
 ## Blogs:
 
