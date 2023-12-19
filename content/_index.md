@@ -12,5 +12,5 @@ This website has some casual blogging and note keeping linked with my Obsidian v
 
 ## Blogs:
 
-- [Reversing-Journal](/Reverse-Journal/Introduction)
-- [AI-Journal](/AI-Journal/Papers)
+- [Reversing-Journal](/Reverse-Journal)
+- [AI-Journal](/AI-Journal)
