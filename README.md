@@ -1,6 +1,13 @@
 # My Journal (Digital Garden)
 
+
 This is the start of blogging out my notes. I began with some Reversing and I'm going to continue with AI and some other interesting topics. I do that to revise what I learn and also markdown syntax is satisfying.
+
+To clone:
+
+```bash
+git clone --recurse-submodules git@github.com:Mirtia/mirtia.github.io.git
+```
 
 ## Quartz v4
 
