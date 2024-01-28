@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - v4
+  schedule:
+    - cron: '0 0 * * 1'
 
 permissions:
   contents: read
@@ -21,8 +23,9 @@ jobs:
       - name: Checkout repository with submodules
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # Fetch all history for git info
-          submodules: true # Always checkout the latest commit of the submodules
+          fetch-depth: 0
+          submodules: recursive
+          submodules-depth: 1
       - uses: actions/setup-node@v3
         with:
           node-version: 18.14
