@@ -5,7 +5,8 @@ on:
     branches:
       - v4
   schedule:
-    - cron: '0 0 * * 1'
+  # Test to see if it works
+    - cron: '0 0 * * *'
 
 permissions:
   contents: read
