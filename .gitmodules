@@ -4,3 +4,6 @@
 [submodule "content/Reverse-Journal"]
 	path = content/Reverse-Journal
 	url = git@github.com:Mirtia/Reverse-Journal.git
+[submodule "content/Art-Journal"]
+	path = content/Art-Journal
+	url = git@github.com:Mirtia/Art-Journal.git

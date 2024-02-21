@@ -12,3 +12,4 @@ Having a digital garden is a plus!
 
 - [Reversing-Journal](/Reverse-Journal)
 - [AI-Journal](/AI-Journal)
+- [Art-Journal](/Art-Journal)
