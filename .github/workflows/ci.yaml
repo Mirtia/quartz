@@ -5,7 +5,6 @@ on:
     branches:
       - v4
   schedule:
-  # Test to see if it works
     - cron: '0 0 * * *'
 
 permissions:
@@ -27,13 +26,21 @@ jobs:
           fetch-depth: 0
           submodules: recursive
           submodules-depth: 1
+          submodules-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull latest changes for submodules
+        run: git submodule update --remote
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18.14
+
       - name: Install Dependencies
         run: npm ci
+
       - name: Build Quartz
         run: npx quartz build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
