@@ -91,8 +91,9 @@ export function createFileParser(ctx: BuildCtx, fps: FilePath[]) {
         }
 
         // base data properties that plugins may use
-        file.data.slug = slugifyFilePath(path.posix.relative(argv.directory, file.path) as FilePath)
-        file.data.filePath = fp
+        file.data.filePath = file.path as FilePath
+        file.data.relativePath = path.posix.relative(argv.directory, file.path) as FilePath
+        file.data.slug = slugifyFilePath(file.data.relativePath)
 
         const ast = processor.parse(file)
         const newAst = await processor.run(ast, file)
@@ -142,7 +143,7 @@ export async function parseMarkdown(ctx: BuildCtx, fps: FilePath[]): Promise<Pro
 
     const childPromises: WorkerPromise<ProcessedContent[]>[] = []
     for (const chunk of chunks(fps, CHUNK_SIZE)) {
-      childPromises.push(pool.exec("parseFiles", [argv, chunk, ctx.allSlugs]))
+      childPromises.push(pool.exec("parseFiles", [ctx.buildId, argv, chunk, ctx.allSlugs]))
     }
 
     const results: ProcessedContent[][] = await WorkerPromise.all(childPromises).catch((err) => {

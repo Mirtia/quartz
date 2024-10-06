@@ -5,10 +5,10 @@ on:
     branches:
       - v4
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 * * * *'  # Runs every hour
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -23,13 +23,34 @@ jobs:
       - name: Checkout repository with submodules
         uses: actions/checkout@v3
         with:
+          ref: ${{ github.ref }}
           fetch-depth: 0
           submodules: recursive
           submodules-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
           submodules-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Pull latest changes for submodules
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git checkout ${{ github.ref_name }}
+
+      - name: Update submodules
         run: git submodule update --remote
+
+      - name: Check for changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Changes detected in submodules."
+            git add .
+            git commit -m "Update submodules to latest commit"
+            git push origin HEAD:${{ github.ref_name }}
+          else
+            echo "No changes in submodules."
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v3
         with:
