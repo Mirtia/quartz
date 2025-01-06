@@ -1,9 +1,9 @@
-[submodule "content/AI-Journal"]
-	path = content/AI-Journal
-	url = git@github.com:Mirtia/AI-Journal.git
 [submodule "content/Reverse-Journal"]
 	path = content/Reverse-Journal
 	url = git@github.com:Mirtia/Reverse-Journal.git
 [submodule "content/Art-Journal"]
 	path = content/Art-Journal
 	url = git@github.com:Mirtia/Art-Journal.git
+[submodule "content/Forensics-Journal"]
+	path = content/Forensics-Journal
+	url = git@github.com:Mirtia/Forensics-Journal.git

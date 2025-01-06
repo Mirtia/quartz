@@ -11,5 +11,5 @@ Having a digital garden is a plus!
 ## Blogs
 
 - [Reversing-Journal](/Reverse-Journal)
-- [AI-Journal](/AI-Journal)
 - [Art-Journal](/Art-Journal)
+- [Forensics-Journal](/Forensics-Journal)
