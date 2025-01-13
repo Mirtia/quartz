@@ -5,7 +5,7 @@ on:
     branches:
       - v4
   schedule:
-    - cron: "0 0 1 * *"
+    - cron: "10 0 * * *"  # This runs every day at 00:10 UTC
 
 permissions:
   contents: write
