@@ -70,10 +70,20 @@ jobs:
       - name: Ensure Quartz builds, check bundle info
         run: npx quartz build --bundleInfo
 
+      - name: Verify public directory exists
+        run: |
+          if [ ! -d "public" ]; then
+            echo "Error: public directory does not exist. Build failed?"
+            exit 1
+          fi
+          echo "Contents of public directory:"
+          ls -la public
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: public
+          name: github-pages
 
   deploy:
     needs: build
